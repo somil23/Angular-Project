@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mx-auto my-5" *ngFor="let product of Products">
+            <mat-card class="product-card" (click)="details(product)">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h3>{{product.name}}</h3>
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <h3>{{product.adjective}}</h3>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="product.image" alt="This is a card image">
+                <mat-card-content>
+                    <h4>{{product.price|currency:'INR'}}</h4>
+                </mat-card-content>
+
+                <!-- binding to parent component -->
+                <app-description [desc]="product.description"></app-description>
+
+
+                <button mat-raised-button class="btn1" (click)="details(product)">Order</button>
+                <!-- <button mat-raised-button="btn2" (click)="onRemove()">Cancel</button> -->
+
+            </mat-card>
+
+            
+        </div>
+
+
+    </div>
+</div>
+ 
+
+<ng-template #detailTemplate>
+    <h1 mat-dialog-title>{{oobb.name}}</h1>
+  <mat-dialog-content>
+    <p>{{oobb.description}}</p>
+    <img src="{{oobb.image}}" alt="This is a card image">
+  </mat-dialog-content>
+<mat-dialog-actions align="end">
+<button mat-raised-button mat-dialog-close>Cancel</button>
+<button mat-raised-button (click)="addtoCart(product)" cdkFocusInitial="true">Buy Now</button>
+</mat-dialog-actions>
+ </ng-template>

@@ -1,0 +1,18 @@
+<mat-toolbar color="primary"  class="space">
+    <span routerLink="" style="cursor: pointer;">My Menu!</span>
+   
+    <span class="menu-spacer"></span>
+    <div *ngIf="this.router.url=='/'">
+    <button class="btn10" mat-raised-button routerLink="login">Logout</button>
+    
+   
+    <button  routerLink="/cart" routerLinkActive="active" mat-flat-button class="btn3" aria-label="Menu with checkout icon">
+        <mat-icon>shopping_cart</mat-icon>
+        Checkout
+        <span *ngIf="a>0">
+            ({{a}})
+        </span>
+    </button>
+</div>
+   
+</mat-toolbar>

@@ -1,0 +1,25 @@
+<button mat-raised-button class="btn6"(click)="clearCart()">Clear All</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-auto my-5" *ngFor="let card of (DataService.subject$|async), index as i">
+      <mat-card class="product-card">
+        <mat-card-title>
+          <h3>{{ card.name }}</h3>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h3>{{ card.price }}</h3>
+        </mat-card-subtitle>
+        <img
+        mat-card-image
+        [src]="card.image"
+        alt="This is a card image">
+        <mat-card-content>
+          {{ card.description }}
+        </mat-card-content>
+        <button mat-raised-button class="btn5" (click)="removeCard(i)">Clear</button>
+      </mat-card>
+     
+    </div>
+  </div>
+</div>
+  
